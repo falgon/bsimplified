@@ -1,0 +1,23 @@
+sudo: false
+language: generic
+cache:
+    directories:
+        - "$HOME/.stack/"
+        - "$HOME/.local/bin/"
+        - ".stack-work/"
+
+before_install:
+    - mkdir -p ~/.local/bin
+    - export PATH=$HOME/.local/bin:$PATH
+    - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+install:
+    - stack --no-terminal test --only-dependencies
+jobs:
+    include:
+        - stage: Run build
+          script: stack build
+        - stage: Sample exec
+          script: stack exec bsimplified -- "A*~B+~A*~B+A*~B+A*B"
+
+notifications:
+    email: false
