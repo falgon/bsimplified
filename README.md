@@ -1,5 +1,7 @@
 # booleanSimplified
 
+[![Build Status](https://travis-ci.org/falgon/bsimplified.svg?branch=master)](https://travis-ci.org/falgon/bsimplified)
+
 For [the blog post](https://falgon.github.io/roki.log/posts/2019/%205%E6%9C%88/29/BooleanAlgebra/).
 
 ## Build
